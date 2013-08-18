@@ -9,11 +9,28 @@ public class MyTreeSet implements Comparable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        MyTreeSet other = (MyTreeSet) o;
+        if (this.price.intValue() == other.getPrice()) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return price.hashCode();
+    }
+
+    @Override
     public int compareTo(Object o) {
-       MyTreeSet myTreeSet= (MyTreeSet)o;
-        if(price.intValue()>myTreeSet.getPrice()){ return 1;}
-       else if(price.intValue()==myTreeSet.getPrice()){ return 0; }
-        else  return -1;
+        MyTreeSet myTreeSet = (MyTreeSet) o;
+        if (price.intValue() > myTreeSet.getPrice()) {
+            return 1;
+        } else if (price.intValue() == myTreeSet.getPrice()) {
+            return 0;
+        } else return -1;
     }
 
     private int getPrice() {
